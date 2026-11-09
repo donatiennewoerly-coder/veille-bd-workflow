@@ -1,0 +1,29 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "fastapi-tanstack-start",
+  "projectType": "library",
+  "targets": {
+    "gen-types": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash tools/gen-types.sh",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "gen-types-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash tools/gen-types.sh --check",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "check": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["gen-types-check"],
+      "options": {
+        "command": "echo \"[check] generated API client is current\"",
+        "cwd": "{workspaceRoot}"
+      }
+    }
+  }
+}

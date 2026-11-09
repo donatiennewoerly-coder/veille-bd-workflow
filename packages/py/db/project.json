@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "db",
+  "projectType": "library",
+  "targets": {
+    "migrate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash tools/db.sh migrate",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "revision": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash tools/db.sh revision",
+        "forwardAllArgs": true,
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "downgrade": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash tools/db.sh downgrade \"{args.revision}\"",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "test-pg-contract": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash tools/db.sh test-pg-contract",
+        "cwd": "{workspaceRoot}"
+      }
+    }
+  }
+}

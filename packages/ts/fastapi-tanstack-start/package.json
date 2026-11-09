@@ -1,0 +1,9 @@
+{
+  "name": "@app/fastapi-tanstack-start",
+  "private": true,
+  "version": "0.0.1",
+  "//": "Dependency-only workspace member: it exists only when fastapi and tanstack-start are both selected, like the generated client it builds. The app links hoisted, so `tools/gen-types.sh` (behind the `fastapi-tanstack-start:gen-types` targets) and `apps/web/openapi-ts.config.ts` resolve it from the root node_modules.",
+  "devDependencies": {
+    "@hey-api/openapi-ts": "0.99.0"
+  }
+}

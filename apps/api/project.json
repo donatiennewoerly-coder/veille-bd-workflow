@@ -1,0 +1,21 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "api",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash tools/uv.sh run --no-sync python -m api.dev",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "gen-openapi": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bash tools/uv.sh run --no-sync gen-openapi",
+        "cwd": "{workspaceRoot}"
+      }
+    }
+  }
+}
